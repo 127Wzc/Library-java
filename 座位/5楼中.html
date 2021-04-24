@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>			<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="shortcut icon" href="/data/laixuanzuo.ico" type="image/x-icon" />
+<link rel="icon" href="/data/laixuanzuo.ico" type="image/x-icon" >
+<meta name="format-detection" content="telephone=no">
+<title>座位选择</title>	<link href="https://static.wechat.laixuanzuo.com/template/theme2/cache/e5cee30369a17a4e9e72a7b6cfb1ce82.css" rel="stylesheet">	<script>var IS_LOGIN = false, DATA_URL = 'https://wechat.laixuanzuo.com/data/', STATIC_URL = 'https://static.wechat.laixuanzuo.com/static/', UPLOAD_URL = 'https://wechat.laixuanzuo.com/data/attachment/',AJAX_URL='/index.php/reserve/get/',_ORG="1", __SX__=0.21,LIB_ID="10092";
+window.PointerEvent = void 0;
+</script>
+</head>
+<body class="register" id="seats">
+<style>
+#loading{width:50px;height:50px;position:absolute;top:50%;left:50%;margin:-25px 0 0 -25px;z-index: 1000;background: #fff; padding: 10px 0 0 10px;overflow: hidden;border:1px solid #E8E8E8;border-radius:3px;}
+#loading img{width:30px;height:30px;}
+</style>
+<div id="loading"><img src="https://static.wechat.laixuanzuo.com/static//loading.gif" alt="加载中"><br></div>
+<div class="control-panel">
+<div class="control-panel-div">
+<ul>
+<li><i class="status_3"></i><br>出入口</li>
+<li><i class="status_active"></i><br>有人</li>
+<li><i class="status_checked"></i><br>我的选择</li>
+<li><i class="status_1"></i><br>空闲</li>
+</ul>
+</div>
+<div class="seat_checked_label" id="seat_checked_label" style="clear: both;">请选择</div>
+</div>
+<a href="/index.php/reserve/index.html" style="width: 50%;background: #D8D6D7" class="select_btn" id="">返回</a>
+<a href="javascript:;" style="width: 50%;right: 0;left: auto" class="select_btn" id="select_btn">确认选座</a>
+<div class="container-fluid">
+<div id="wrapper">
+<div class="layout_grid" id="content-container" style="width:1435px; height:2380px">		<div class="grid_cell grid_2" data-key="9,3" style="left:140px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,4" style="left:175px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,5" style="left:210px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,6" style="left:245px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,7" style="left:280px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,8" style="left:315px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,9" style="left:350px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,10" style="left:385px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,12" style="left:455px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,13" style="left:490px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,14" style="left:525px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,15" style="left:560px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,17" style="left:630px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,18" style="left:665px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,19" style="left:700px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,20" style="left:735px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,22" style="left:805px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,23" style="left:840px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,24" style="left:875px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,25" style="left:910px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,26" style="left:945px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,27" style="left:980px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,28" style="left:1015px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="9,29" style="left:1050px;top:350px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="10,3" style="left:140px;top:385px;">
+<em>103</em>
+</div>		<div class="grid_cell grid_active" data-key="10,4" style="left:175px;top:385px;">
+<em>104</em>
+</div>		<div class="grid_cell grid_active" data-key="10,5" style="left:210px;top:385px;">
+<em>105</em>
+</div>		<div class="grid_cell grid_active" data-key="10,6" style="left:245px;top:385px;">
+<em>106</em>
+</div>		<div class="grid_cell grid_active" data-key="10,7" style="left:280px;top:385px;">
+<em>107</em>
+</div>		<div class="grid_cell grid_active" data-key="10,8" style="left:315px;top:385px;">
+<em>108</em>
+</div>		<div class="grid_cell grid_active" data-key="10,9" style="left:350px;top:385px;">
+<em>109</em>
+</div>		<div class="grid_cell grid_active" data-key="10,10" style="left:385px;top:385px;">
+<em>110</em>
+</div>		<div class="grid_cell grid_6" data-key="10,11" style="left:420px;top:385px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="10,12" style="left:455px;top:385px;">
+<em>111</em>
+</div>		<div class="grid_cell grid_1" data-key="10,13" style="left:490px;top:385px;">
+<em>112</em>
+</div>		<div class="grid_cell grid_active" data-key="10,14" style="left:525px;top:385px;">
+<em>113</em>
+</div>		<div class="grid_cell grid_active" data-key="10,15" style="left:560px;top:385px;">
+<em>114</em>
+</div>		<div class="grid_cell grid_active" data-key="10,17" style="left:630px;top:385px;">
+<em>115</em>
+</div>		<div class="grid_cell grid_active" data-key="10,18" style="left:665px;top:385px;">
+<em>116</em>
+</div>		<div class="grid_cell grid_active" data-key="10,19" style="left:700px;top:385px;">
+<em>117</em>
+</div>		<div class="grid_cell grid_active" data-key="10,20" style="left:735px;top:385px;">
+<em>118</em>
+</div>		<div class="grid_cell grid_6" data-key="10,21" style="left:770px;top:385px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="10,22" style="left:805px;top:385px;">
+<em>119</em>
+</div>		<div class="grid_cell grid_active" data-key="10,23" style="left:840px;top:385px;">
+<em>120</em>
+</div>		<div class="grid_cell grid_active" data-key="10,24" style="left:875px;top:385px;">
+<em>121</em>
+</div>		<div class="grid_cell grid_active" data-key="10,25" style="left:910px;top:385px;">
+<em>122</em>
+</div>		<div class="grid_cell grid_active" data-key="10,26" style="left:945px;top:385px;">
+<em>123</em>
+</div>		<div class="grid_cell grid_active" data-key="10,27" style="left:980px;top:385px;">
+<em>124</em>
+</div>		<div class="grid_cell grid_active" data-key="10,28" style="left:1015px;top:385px;">
+<em>125</em>
+</div>		<div class="grid_cell grid_active" data-key="10,29" style="left:1050px;top:385px;">
+<em>126</em>
+</div>		<div class="grid_cell grid_active" data-key="12,4" style="left:175px;top:455px;">
+<em>127</em>
+</div>		<div class="grid_cell grid_2" data-key="12,5" style="left:210px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,6" style="left:245px;top:455px;">
+<em>134</em>
+</div>		<div class="grid_cell grid_active" data-key="12,8" style="left:315px;top:455px;">
+<em>135</em>
+</div>		<div class="grid_cell grid_2" data-key="12,9" style="left:350px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,10" style="left:385px;top:455px;">
+<em>138</em>
+</div>		<div class="grid_cell grid_active" data-key="12,12" style="left:455px;top:455px;">
+<em>139</em>
+</div>		<div class="grid_cell grid_2" data-key="12,13" style="left:490px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,14" style="left:525px;top:455px;">
+<em>146</em>
+</div>		<div class="grid_cell grid_active" data-key="12,17" style="left:630px;top:455px;">
+<em>147</em>
+</div>		<div class="grid_cell grid_2" data-key="12,18" style="left:665px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,19" style="left:700px;top:455px;">
+<em>154</em>
+</div>		<div class="grid_cell grid_active" data-key="12,21" style="left:770px;top:455px;">
+<em>155</em>
+</div>		<div class="grid_cell grid_2" data-key="12,22" style="left:805px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,23" style="left:840px;top:455px;">
+<em>158</em>
+</div>		<div class="grid_cell grid_active" data-key="12,25" style="left:910px;top:455px;">
+<em>159</em>
+</div>		<div class="grid_cell grid_2" data-key="12,26" style="left:945px;top:455px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="12,27" style="left:980px;top:455px;">
+<em>166</em>
+</div>		<div class="grid_cell grid_active" data-key="13,4" style="left:175px;top:490px;">
+<em>128</em>
+</div>		<div class="grid_cell grid_2" data-key="13,5" style="left:210px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,6" style="left:245px;top:490px;">
+<em>133</em>
+</div>		<div class="grid_cell grid_active" data-key="13,8" style="left:315px;top:490px;">
+<em>136</em>
+</div>		<div class="grid_cell grid_2" data-key="13,9" style="left:350px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,10" style="left:385px;top:490px;">
+<em>137</em>
+</div>		<div class="grid_cell grid_active" data-key="13,12" style="left:455px;top:490px;">
+<em>140</em>
+</div>		<div class="grid_cell grid_2" data-key="13,13" style="left:490px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,14" style="left:525px;top:490px;">
+<em>145</em>
+</div>		<div class="grid_cell grid_active" data-key="13,17" style="left:630px;top:490px;">
+<em>148</em>
+</div>		<div class="grid_cell grid_2" data-key="13,18" style="left:665px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,19" style="left:700px;top:490px;">
+<em>153</em>
+</div>		<div class="grid_cell grid_active" data-key="13,21" style="left:770px;top:490px;">
+<em>156</em>
+</div>		<div class="grid_cell grid_2" data-key="13,22" style="left:805px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,23" style="left:840px;top:490px;">
+<em>157</em>
+</div>		<div class="grid_cell grid_active" data-key="13,25" style="left:910px;top:490px;">
+<em>160</em>
+</div>		<div class="grid_cell grid_2" data-key="13,26" style="left:945px;top:490px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="13,27" style="left:980px;top:490px;">
+<em>165</em>
+</div>		<div class="grid_cell grid_active" data-key="14,4" style="left:175px;top:525px;">
+<em>129</em>
+</div>		<div class="grid_cell grid_2" data-key="14,5" style="left:210px;top:525px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="14,6" style="left:245px;top:525px;">
+<em>132</em>
+</div>		<div class="grid_cell grid_active" data-key="14,12" style="left:455px;top:525px;">
+<em>141</em>
+</div>		<div class="grid_cell grid_2" data-key="14,13" style="left:490px;top:525px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="14,14" style="left:525px;top:525px;">
+<em>144</em>
+</div>		<div class="grid_cell grid_active" data-key="14,17" style="left:630px;top:525px;">
+<em>149</em>
+</div>		<div class="grid_cell grid_2" data-key="14,18" style="left:665px;top:525px;">
+<em></em>
+</div>		<div class="grid_cell grid_1" data-key="14,19" style="left:700px;top:525px;">
+<em>152</em>
+</div>		<div class="grid_cell grid_active" data-key="14,25" style="left:910px;top:525px;">
+<em>161</em>
+</div>		<div class="grid_cell grid_2" data-key="14,26" style="left:945px;top:525px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="14,27" style="left:980px;top:525px;">
+<em>164</em>
+</div>		<div class="grid_cell grid_active" data-key="15,4" style="left:175px;top:560px;">
+<em>130</em>
+</div>		<div class="grid_cell grid_2" data-key="15,5" style="left:210px;top:560px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="15,6" style="left:245px;top:560px;">
+<em>131</em>
+</div>		<div class="grid_cell grid_active" data-key="15,12" style="left:455px;top:560px;">
+<em>142</em>
+</div>		<div class="grid_cell grid_2" data-key="15,13" style="left:490px;top:560px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="15,14" style="left:525px;top:560px;">
+<em>143</em>
+</div>		<div class="grid_cell grid_active" data-key="15,17" style="left:630px;top:560px;">
+<em>150</em>
+</div>		<div class="grid_cell grid_2" data-key="15,18" style="left:665px;top:560px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="15,19" style="left:700px;top:560px;">
+<em>151</em>
+</div>		<div class="grid_cell grid_active" data-key="15,25" style="left:910px;top:560px;">
+<em>162</em>
+</div>		<div class="grid_cell grid_2" data-key="15,26" style="left:945px;top:560px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="15,27" style="left:980px;top:560px;">
+<em>163</em>
+</div>		<div class="grid_cell grid_8" data-key="17,4" style="left:175px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,5" style="left:210px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,6" style="left:245px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,7" style="left:280px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,8" style="left:315px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,9" style="left:350px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,10" style="left:385px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,11" style="left:420px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,12" style="left:455px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,13" style="left:490px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,14" style="left:525px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,15" style="left:560px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,16" style="left:595px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,17" style="left:630px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,18" style="left:665px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,19" style="left:700px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,20" style="left:735px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,21" style="left:770px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,22" style="left:805px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,23" style="left:840px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,24" style="left:875px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,25" style="left:910px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,26" style="left:945px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,27" style="left:980px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,28" style="left:1015px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="17,29" style="left:1050px;top:630px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="18,4" style="left:175px;top:665px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="18,29" style="left:1050px;top:665px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,4" style="left:175px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,5" style="left:210px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,6" style="left:245px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,7" style="left:280px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,8" style="left:315px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,9" style="left:350px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,10" style="left:385px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,11" style="left:420px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,12" style="left:455px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,13" style="left:490px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,14" style="left:525px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,15" style="left:560px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,16" style="left:595px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,17" style="left:630px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,18" style="left:665px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,19" style="left:700px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,20" style="left:735px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,21" style="left:770px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,22" style="left:805px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,23" style="left:840px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,24" style="left:875px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,25" style="left:910px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,26" style="left:945px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,27" style="left:980px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,28" style="left:1015px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_8" data-key="19,29" style="left:1050px;top:700px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="22,3" style="left:140px;top:805px;">
+<em>167</em>
+</div>		<div class="grid_cell grid_active" data-key="22,4" style="left:175px;top:805px;">
+<em>168</em>
+</div>		<div class="grid_cell grid_active" data-key="22,5" style="left:210px;top:805px;">
+<em>169</em>
+</div>		<div class="grid_cell grid_active" data-key="22,6" style="left:245px;top:805px;">
+<em>170</em>
+</div>		<div class="grid_cell grid_active" data-key="22,7" style="left:280px;top:805px;">
+<em>171</em>
+</div>		<div class="grid_cell grid_active" data-key="22,8" style="left:315px;top:805px;">
+<em>172</em>
+</div>		<div class="grid_cell grid_active" data-key="22,23" style="left:840px;top:805px;">
+<em>181</em>
+</div>		<div class="grid_cell grid_active" data-key="22,24" style="left:875px;top:805px;">
+<em>182</em>
+</div>		<div class="grid_cell grid_1" data-key="22,25" style="left:910px;top:805px;">
+<em>183</em>
+</div>		<div class="grid_cell grid_active" data-key="22,26" style="left:945px;top:805px;">
+<em>184</em>
+</div>		<div class="grid_cell grid_active" data-key="22,27" style="left:980px;top:805px;">
+<em>185</em>
+</div>		<div class="grid_cell grid_active" data-key="22,28" style="left:1015px;top:805px;">
+<em>186</em>
+</div>		<div class="grid_cell grid_6" data-key="23,2" style="left:105px;top:840px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_2" data-key="23,3" style="left:140px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,4" style="left:175px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,5" style="left:210px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,6" style="left:245px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,7" style="left:280px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,8" style="left:315px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_6" data-key="23,9" style="left:350px;top:840px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="23,10" style="left:385px;top:840px;">
+<em>173</em>
+</div>		<div class="grid_cell grid_2" data-key="23,11" style="left:420px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="23,12" style="left:455px;top:840px;">
+<em>174</em>
+</div>		<div class="grid_cell grid_active" data-key="23,13" style="left:490px;top:840px;">
+<em>175</em>
+</div>		<div class="grid_cell grid_2" data-key="23,14" style="left:525px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="23,15" style="left:560px;top:840px;">
+<em>176</em>
+</div>		<div class="grid_cell grid_active" data-key="23,16" style="left:595px;top:840px;">
+<em>177</em>
+</div>		<div class="grid_cell grid_2" data-key="23,17" style="left:630px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="23,18" style="left:665px;top:840px;">
+<em>178</em>
+</div>		<div class="grid_cell grid_active" data-key="23,19" style="left:700px;top:840px;">
+<em>179</em>
+</div>		<div class="grid_cell grid_2" data-key="23,20" style="left:735px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="23,21" style="left:770px;top:840px;">
+<em>180</em>
+</div>		<div class="grid_cell grid_6" data-key="23,22" style="left:805px;top:840px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_2" data-key="23,23" style="left:840px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,24" style="left:875px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,25" style="left:910px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,26" style="left:945px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,27" style="left:980px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_2" data-key="23,28" style="left:1015px;top:840px;">
+<em></em>
+</div>		<div class="grid_cell grid_6" data-key="23,29" style="left:1050px;top:840px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="24,2" style="left:105px;top:875px;">
+<em>234</em>
+</div>		<div class="grid_cell grid_7" data-key="24,3" style="left:140px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,4" style="left:175px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,5" style="left:210px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,6" style="left:245px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,7" style="left:280px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,8" style="left:315px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,9" style="left:350px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,10" style="left:385px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,11" style="left:420px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,12" style="left:455px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,13" style="left:490px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,14" style="left:525px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,15" style="left:560px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,16" style="left:595px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,17" style="left:630px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,18" style="left:665px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,19" style="left:700px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,20" style="left:735px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,21" style="left:770px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,22" style="left:805px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,23" style="left:840px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,24" style="left:875px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,25" style="left:910px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,26" style="left:945px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,27" style="left:980px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="24,28" style="left:1015px;top:875px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="24,29" style="left:1050px;top:875px;">
+<em>187</em>
+</div>		<div class="grid_cell grid_2" data-key="25,2" style="left:105px;top:910px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="25,3" style="left:140px;top:910px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="25,28" style="left:1015px;top:910px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="25,29" style="left:1050px;top:910px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="26,2" style="left:105px;top:945px;">
+<em>233</em>
+</div>		<div class="grid_cell grid_7" data-key="26,3" style="left:140px;top:945px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="26,28" style="left:1015px;top:945px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="26,29" style="left:1050px;top:945px;">
+<em>188</em>
+</div>		<div class="grid_cell grid_active" data-key="27,2" style="left:105px;top:980px;">
+<em>232</em>
+</div>		<div class="grid_cell grid_7" data-key="27,3" style="left:140px;top:980px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="27,28" style="left:1015px;top:980px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="27,29" style="left:1050px;top:980px;">
+<em>189</em>
+</div>		<div class="grid_cell grid_2" data-key="28,2" style="left:105px;top:1015px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="28,3" style="left:140px;top:1015px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="28,28" style="left:1015px;top:1015px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="28,29" style="left:1050px;top:1015px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="29,2" style="left:105px;top:1050px;">
+<em>231</em>
+</div>		<div class="grid_cell grid_7" data-key="29,3" style="left:140px;top:1050px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="29,28" style="left:1015px;top:1050px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="29,29" style="left:1050px;top:1050px;">
+<em>190</em>
+</div>		<div class="grid_cell grid_active" data-key="30,2" style="left:105px;top:1085px;">
+<em>230</em>
+</div>		<div class="grid_cell grid_7" data-key="30,3" style="left:140px;top:1085px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="30,28" style="left:1015px;top:1085px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="30,29" style="left:1050px;top:1085px;">
+<em>191</em>
+</div>		<div class="grid_cell grid_2" data-key="31,2" style="left:105px;top:1120px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="31,3" style="left:140px;top:1120px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="31,28" style="left:1015px;top:1120px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="31,29" style="left:1050px;top:1120px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="32,2" style="left:105px;top:1155px;">
+<em>229</em>
+</div>		<div class="grid_cell grid_7" data-key="32,3" style="left:140px;top:1155px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="32,28" style="left:1015px;top:1155px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="32,29" style="left:1050px;top:1155px;">
+<em>192</em>
+</div>		<div class="grid_cell grid_6" data-key="33,2" style="left:105px;top:1190px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_7" data-key="33,3" style="left:140px;top:1190px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="33,28" style="left:1015px;top:1190px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_6" data-key="33,29" style="left:1050px;top:1190px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="34,2" style="left:105px;top:1225px;">
+<em>228</em>
+</div>		<div class="grid_cell grid_7" data-key="34,3" style="left:140px;top:1225px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="34,28" style="left:1015px;top:1225px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="34,29" style="left:1050px;top:1225px;">
+<em>193</em>
+</div>		<div class="grid_cell grid_2" data-key="35,2" style="left:105px;top:1260px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="35,3" style="left:140px;top:1260px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="35,28" style="left:1015px;top:1260px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="35,29" style="left:1050px;top:1260px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="36,2" style="left:105px;top:1295px;">
+<em>227</em>
+</div>		<div class="grid_cell grid_7" data-key="36,3" style="left:140px;top:1295px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="36,28" style="left:1015px;top:1295px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="36,29" style="left:1050px;top:1295px;">
+<em>194</em>
+</div>		<div class="grid_cell grid_active" data-key="37,2" style="left:105px;top:1330px;">
+<em>226</em>
+</div>		<div class="grid_cell grid_7" data-key="37,3" style="left:140px;top:1330px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="37,28" style="left:1015px;top:1330px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="37,29" style="left:1050px;top:1330px;">
+<em>195</em>
+</div>		<div class="grid_cell grid_2" data-key="38,2" style="left:105px;top:1365px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="38,3" style="left:140px;top:1365px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="38,28" style="left:1015px;top:1365px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="38,29" style="left:1050px;top:1365px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="39,2" style="left:105px;top:1400px;">
+<em>225</em>
+</div>		<div class="grid_cell grid_7" data-key="39,3" style="left:140px;top:1400px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="39,28" style="left:1015px;top:1400px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="39,29" style="left:1050px;top:1400px;">
+<em>196</em>
+</div>		<div class="grid_cell grid_active" data-key="40,2" style="left:105px;top:1435px;">
+<em>224</em>
+</div>		<div class="grid_cell grid_7" data-key="40,3" style="left:140px;top:1435px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="40,28" style="left:1015px;top:1435px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="40,29" style="left:1050px;top:1435px;">
+<em>197</em>
+</div>		<div class="grid_cell grid_2" data-key="41,2" style="left:105px;top:1470px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="41,3" style="left:140px;top:1470px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="41,28" style="left:1015px;top:1470px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="41,29" style="left:1050px;top:1470px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="42,2" style="left:105px;top:1505px;">
+<em>223</em>
+</div>		<div class="grid_cell grid_7" data-key="42,3" style="left:140px;top:1505px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="42,28" style="left:1015px;top:1505px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="42,29" style="left:1050px;top:1505px;">
+<em>198</em>
+</div>		<div class="grid_cell grid_6" data-key="43,2" style="left:105px;top:1540px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_7" data-key="43,3" style="left:140px;top:1540px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="43,28" style="left:1015px;top:1540px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_6" data-key="43,29" style="left:1050px;top:1540px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="44,2" style="left:105px;top:1575px;">
+<em>222</em>
+</div>		<div class="grid_cell grid_7" data-key="44,3" style="left:140px;top:1575px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="44,28" style="left:1015px;top:1575px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="44,29" style="left:1050px;top:1575px;">
+<em>199</em>
+</div>		<div class="grid_cell grid_2" data-key="45,2" style="left:105px;top:1610px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="45,3" style="left:140px;top:1610px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="45,28" style="left:1015px;top:1610px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="45,29" style="left:1050px;top:1610px;">
+<em></em>
+</div>		<div class="grid_cell grid_1" data-key="46,2" style="left:105px;top:1645px;">
+<em>221</em>
+</div>		<div class="grid_cell grid_7" data-key="46,3" style="left:140px;top:1645px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="46,28" style="left:1015px;top:1645px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="46,29" style="left:1050px;top:1645px;">
+<em>200</em>
+</div>		<div class="grid_cell grid_active" data-key="47,2" style="left:105px;top:1680px;">
+<em>220</em>
+</div>		<div class="grid_cell grid_7" data-key="47,3" style="left:140px;top:1680px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="47,28" style="left:1015px;top:1680px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="47,29" style="left:1050px;top:1680px;">
+<em>201</em>
+</div>		<div class="grid_cell grid_2" data-key="48,2" style="left:105px;top:1715px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="48,3" style="left:140px;top:1715px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="48,28" style="left:1015px;top:1715px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="48,29" style="left:1050px;top:1715px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="49,2" style="left:105px;top:1750px;">
+<em>219</em>
+</div>		<div class="grid_cell grid_7" data-key="49,3" style="left:140px;top:1750px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="49,28" style="left:1015px;top:1750px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="49,29" style="left:1050px;top:1750px;">
+<em>202</em>
+</div>		<div class="grid_cell grid_active" data-key="50,2" style="left:105px;top:1785px;">
+<em>218</em>
+</div>		<div class="grid_cell grid_7" data-key="50,3" style="left:140px;top:1785px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="50,28" style="left:1015px;top:1785px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="50,29" style="left:1050px;top:1785px;">
+<em>203</em>
+</div>		<div class="grid_cell grid_2" data-key="51,2" style="left:105px;top:1820px;">
+<em></em>
+</div>		<div class="grid_cell grid_7" data-key="51,3" style="left:140px;top:1820px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="51,28" style="left:1015px;top:1820px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_2" data-key="51,29" style="left:1050px;top:1820px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="52,2" style="left:105px;top:1855px;">
+<em>217</em>
+</div>		<div class="grid_cell grid_7" data-key="52,3" style="left:140px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,4" style="left:175px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,5" style="left:210px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,6" style="left:245px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,7" style="left:280px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,8" style="left:315px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,9" style="left:350px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,10" style="left:385px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,11" style="left:420px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,12" style="left:455px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,13" style="left:490px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,14" style="left:525px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,15" style="left:560px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,16" style="left:595px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,17" style="left:630px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,18" style="left:665px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,19" style="left:700px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,20" style="left:735px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,21" style="left:770px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,22" style="left:805px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,23" style="left:840px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,24" style="left:875px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,25" style="left:910px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,26" style="left:945px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,27" style="left:980px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_7" data-key="52,28" style="left:1015px;top:1855px;">
+<em>窗</em>
+</div>		<div class="grid_cell grid_active" data-key="52,29" style="left:1050px;top:1855px;">
+<em>204</em>
+</div>		<div class="grid_cell grid_6" data-key="53,2" style="left:105px;top:1890px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="53,3" style="left:140px;top:1890px;">
+<em>216</em>
+</div>		<div class="grid_cell grid_2" data-key="53,4" style="left:175px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="53,5" style="left:210px;top:1890px;">
+<em>215</em>
+</div>		<div class="grid_cell grid_active" data-key="53,6" style="left:245px;top:1890px;">
+<em>214</em>
+</div>		<div class="grid_cell grid_2" data-key="53,7" style="left:280px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="53,8" style="left:315px;top:1890px;">
+<em>213</em>
+</div>		<div class="grid_cell grid_6" data-key="53,9" style="left:350px;top:1890px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="53,13" style="left:490px;top:1890px;">
+<em>212</em>
+</div>		<div class="grid_cell grid_2" data-key="53,14" style="left:525px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="53,15" style="left:560px;top:1890px;">
+<em>211</em>
+</div>		<div class="grid_cell grid_active" data-key="53,17" style="left:630px;top:1890px;">
+<em>210</em>
+</div>		<div class="grid_cell grid_2" data-key="53,18" style="left:665px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_1" data-key="53,19" style="left:700px;top:1890px;">
+<em>209</em>
+</div>		<div class="grid_cell grid_6" data-key="53,22" style="left:805px;top:1890px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="53,23" style="left:840px;top:1890px;">
+<em>208</em>
+</div>		<div class="grid_cell grid_2" data-key="53,24" style="left:875px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="53,25" style="left:910px;top:1890px;">
+<em>207</em>
+</div>		<div class="grid_cell grid_active" data-key="53,26" style="left:945px;top:1890px;">
+<em>206</em>
+</div>		<div class="grid_cell grid_2" data-key="53,27" style="left:980px;top:1890px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="53,28" style="left:1015px;top:1890px;">
+<em>205</em>
+</div>		<div class="grid_cell grid_6" data-key="53,29" style="left:1050px;top:1890px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="56,4" style="left:175px;top:1995px;">
+<em>235</em>
+</div>		<div class="grid_cell grid_2" data-key="56,5" style="left:210px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="56,6" style="left:245px;top:1995px;">
+<em>242</em>
+</div>		<div class="grid_cell grid_active" data-key="56,8" style="left:315px;top:1995px;">
+<em>243</em>
+</div>		<div class="grid_cell grid_2" data-key="56,9" style="left:350px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="56,10" style="left:385px;top:1995px;">
+<em>250</em>
+</div>		<div class="grid_cell grid_active" data-key="56,12" style="left:455px;top:1995px;">
+<em>251</em>
+</div>		<div class="grid_cell grid_2" data-key="56,13" style="left:490px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="56,14" style="left:525px;top:1995px;">
+<em>258</em>
+</div>		<div class="grid_cell grid_active" data-key="56,16" style="left:595px;top:1995px;">
+<em>259</em>
+</div>		<div class="grid_cell grid_2" data-key="56,17" style="left:630px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="56,18" style="left:665px;top:1995px;">
+<em>266</em>
+</div>		<div class="grid_cell grid_active" data-key="56,20" style="left:735px;top:1995px;">
+<em>267</em>
+</div>		<div class="grid_cell grid_2" data-key="56,21" style="left:770px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_1" data-key="56,22" style="left:805px;top:1995px;">
+<em>274</em>
+</div>		<div class="grid_cell grid_1" data-key="56,24" style="left:875px;top:1995px;">
+<em>275</em>
+</div>		<div class="grid_cell grid_2" data-key="56,25" style="left:910px;top:1995px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="56,26" style="left:945px;top:1995px;">
+<em>282</em>
+</div>		<div class="grid_cell grid_active" data-key="57,4" style="left:175px;top:2030px;">
+<em>236</em>
+</div>		<div class="grid_cell grid_2" data-key="57,5" style="left:210px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,6" style="left:245px;top:2030px;">
+<em>241</em>
+</div>		<div class="grid_cell grid_1" data-key="57,8" style="left:315px;top:2030px;">
+<em>244</em>
+</div>		<div class="grid_cell grid_2" data-key="57,9" style="left:350px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,10" style="left:385px;top:2030px;">
+<em>249</em>
+</div>		<div class="grid_cell grid_active" data-key="57,12" style="left:455px;top:2030px;">
+<em>252</em>
+</div>		<div class="grid_cell grid_2" data-key="57,13" style="left:490px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,14" style="left:525px;top:2030px;">
+<em>257</em>
+</div>		<div class="grid_cell grid_active" data-key="57,16" style="left:595px;top:2030px;">
+<em>260</em>
+</div>		<div class="grid_cell grid_2" data-key="57,17" style="left:630px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,18" style="left:665px;top:2030px;">
+<em>265</em>
+</div>		<div class="grid_cell grid_active" data-key="57,20" style="left:735px;top:2030px;">
+<em>268</em>
+</div>		<div class="grid_cell grid_2" data-key="57,21" style="left:770px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,22" style="left:805px;top:2030px;">
+<em>273</em>
+</div>		<div class="grid_cell grid_active" data-key="57,24" style="left:875px;top:2030px;">
+<em>276</em>
+</div>		<div class="grid_cell grid_2" data-key="57,25" style="left:910px;top:2030px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="57,26" style="left:945px;top:2030px;">
+<em>281</em>
+</div>		<div class="grid_cell grid_active" data-key="58,4" style="left:175px;top:2065px;">
+<em>237</em>
+</div>		<div class="grid_cell grid_2" data-key="58,5" style="left:210px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,6" style="left:245px;top:2065px;">
+<em>240</em>
+</div>		<div class="grid_cell grid_active" data-key="58,8" style="left:315px;top:2065px;">
+<em>245</em>
+</div>		<div class="grid_cell grid_2" data-key="58,9" style="left:350px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,10" style="left:385px;top:2065px;">
+<em>248</em>
+</div>		<div class="grid_cell grid_active" data-key="58,12" style="left:455px;top:2065px;">
+<em>253</em>
+</div>		<div class="grid_cell grid_2" data-key="58,13" style="left:490px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,14" style="left:525px;top:2065px;">
+<em>256</em>
+</div>		<div class="grid_cell grid_active" data-key="58,16" style="left:595px;top:2065px;">
+<em>261</em>
+</div>		<div class="grid_cell grid_2" data-key="58,17" style="left:630px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,18" style="left:665px;top:2065px;">
+<em>264</em>
+</div>		<div class="grid_cell grid_active" data-key="58,20" style="left:735px;top:2065px;">
+<em>269</em>
+</div>		<div class="grid_cell grid_2" data-key="58,21" style="left:770px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,22" style="left:805px;top:2065px;">
+<em>272</em>
+</div>		<div class="grid_cell grid_active" data-key="58,24" style="left:875px;top:2065px;">
+<em>277</em>
+</div>		<div class="grid_cell grid_2" data-key="58,25" style="left:910px;top:2065px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="58,26" style="left:945px;top:2065px;">
+<em>280</em>
+</div>		<div class="grid_cell grid_active" data-key="59,4" style="left:175px;top:2100px;">
+<em>238</em>
+</div>		<div class="grid_cell grid_2" data-key="59,5" style="left:210px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,6" style="left:245px;top:2100px;">
+<em>239</em>
+</div>		<div class="grid_cell grid_active" data-key="59,8" style="left:315px;top:2100px;">
+<em>246</em>
+</div>		<div class="grid_cell grid_2" data-key="59,9" style="left:350px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,10" style="left:385px;top:2100px;">
+<em>247</em>
+</div>		<div class="grid_cell grid_active" data-key="59,12" style="left:455px;top:2100px;">
+<em>254</em>
+</div>		<div class="grid_cell grid_2" data-key="59,13" style="left:490px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,14" style="left:525px;top:2100px;">
+<em>255</em>
+</div>		<div class="grid_cell grid_active" data-key="59,16" style="left:595px;top:2100px;">
+<em>262</em>
+</div>		<div class="grid_cell grid_2" data-key="59,17" style="left:630px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,18" style="left:665px;top:2100px;">
+<em>263</em>
+</div>		<div class="grid_cell grid_active" data-key="59,20" style="left:735px;top:2100px;">
+<em>270</em>
+</div>		<div class="grid_cell grid_2" data-key="59,21" style="left:770px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,22" style="left:805px;top:2100px;">
+<em>271</em>
+</div>		<div class="grid_cell grid_active" data-key="59,24" style="left:875px;top:2100px;">
+<em>278</em>
+</div>		<div class="grid_cell grid_2" data-key="59,25" style="left:910px;top:2100px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="59,26" style="left:945px;top:2100px;">
+<em>279</em>
+</div>		<div class="grid_cell grid_active" data-key="62,2" style="left:105px;top:2205px;">
+<em>283</em>
+</div>		<div class="grid_cell grid_2" data-key="62,3" style="left:140px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,4" style="left:175px;top:2205px;">
+<em>284</em>
+</div>		<div class="grid_cell grid_active" data-key="62,6" style="left:245px;top:2205px;">
+<em>285</em>
+</div>		<div class="grid_cell grid_2" data-key="62,7" style="left:280px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,8" style="left:315px;top:2205px;">
+<em>286</em>
+</div>		<div class="grid_cell grid_6" data-key="62,9" style="left:350px;top:2205px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_active" data-key="62,11" style="left:420px;top:2205px;">
+<em>287</em>
+</div>		<div class="grid_cell grid_2" data-key="62,12" style="left:455px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,13" style="left:490px;top:2205px;">
+<em>288</em>
+</div>		<div class="grid_cell grid_active" data-key="62,15" style="left:560px;top:2205px;">
+<em>289</em>
+</div>		<div class="grid_cell grid_2" data-key="62,16" style="left:595px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,17" style="left:630px;top:2205px;">
+<em>290</em>
+</div>		<div class="grid_cell grid_active" data-key="62,19" style="left:700px;top:2205px;">
+<em>291</em>
+</div>		<div class="grid_cell grid_2" data-key="62,20" style="left:735px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,21" style="left:770px;top:2205px;">
+<em>292</em>
+</div>		<div class="grid_cell grid_6" data-key="62,22" style="left:805px;top:2205px;">
+<em>柱</em>
+</div>		<div class="grid_cell grid_1" data-key="62,24" style="left:875px;top:2205px;">
+<em>293</em>
+</div>		<div class="grid_cell grid_2" data-key="62,25" style="left:910px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,26" style="left:945px;top:2205px;">
+<em>294</em>
+</div>		<div class="grid_cell grid_active" data-key="62,28" style="left:1015px;top:2205px;">
+<em>295</em>
+</div>		<div class="grid_cell grid_2" data-key="62,29" style="left:1050px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,30" style="left:1085px;top:2205px;">
+<em>296</em>
+</div>		<div class="grid_cell grid_1" data-key="62,32" style="left:1155px;top:2205px;">
+<em>297</em>
+</div>		<div class="grid_cell grid_2" data-key="62,33" style="left:1190px;top:2205px;">
+<em></em>
+</div>		<div class="grid_cell grid_active" data-key="62,34" style="left:1225px;top:2205px;">
+<em>298</em>
+</div>		<div class="grid_cell grid_6" data-key="62,35" style="left:1260px;top:2205px;">
+<em>柱</em>
+</div>		</div>
+</div>
+</div>
+<style>
+#yzm_dialog{
+width:86%;
+margin: 0 auto;
+}
+#yzm_dialog .modal-header{
+background: #5C84BD;
+color:white;
+}
+.modal-header span{
+color:white;
+}
+#yzm_dialog .modal-content{
+box-shadow:none;
+padding: 10px 0px;
+border-radius:0;
+border:0px;
+}
+#yzm_dialog .modal-footer{
+background: white;
+}
+#yzm_dialog .form-control,#yzm_dialog .basic-addon2{
+height: 36px;
+}
+.modal{
+z-index:3000;
+}
+.modal-backdrop{
+z-index:2999;
+}
+</style>
+<div id="yzm_dialog" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal-dialog modal-sm">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="gridSystemModalLabel">验证码,点击图片可刷新</h4>
+</div>
+<div class="modal-content">
+<div class="input-group" style="width: 85%;margin:15px auto 15px auto">
+<input type="tel" class="form-control" name="verify" maxlength="4" id="user-verify" placeholder="请输入验证码" aria-describedby="basic-addon2">
+<span class="input-group-addon reflush-yzm" id="basic-addon2" style="padding: 2px 12px">
+<img src="/index.php/misc/verify.html" width="60px" height="28px" />
+</span>
+</div>
+</div>
+<div class="modal-footer btns">
+<button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+<button type="button" class="btn btn-primary confirm">确认</button>
+</div>
+</div>
+</div>					<script src="https://static.wechat.laixuanzuo.com/template/theme2/cache/4bafdd1639a80debc4dc50362bb05edd.js"></script><script src="https://static.wechat.laixuanzuo.com/template/theme2/cache/layout/hSimEXkQTisdjkAs.js"></script>
+<script src="https://static.wechat.laixuanzuo.com/template/theme2/js/layout-zoom-no-reserve.js"></script>	</body>
+</html>
