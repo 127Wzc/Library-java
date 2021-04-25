@@ -6,6 +6,8 @@ import org.jsoup.nodes.Document;
 public class PreWindwo implements Runnable {
 	private String r_url;
 	private long startTime;
+	private boolean flag=false;
+
 	String llString = "该座位已经被抢掉了,请换个座位";
 
 	public void run() {
@@ -16,22 +18,23 @@ public class PreWindwo implements Runnable {
 
 				String re_msg = TeseMain.getJson(result);
 				System.out.println(Thread.currentThread().getName() + "第一次结果：" + re_msg);
-				while (isEnd(re_msg, nums)) {
+				while (!flag&&nums>0) {
 					result = TeseMain.toFunction(this.r_url, this.startTime);
 					re_msg = TeseMain.getJson(result);
 					System.out.println(Thread.currentThread().getName() + "第" + (10 - nums + 1) + "结果：" + re_msg);
+					System.out.println("结束时间" + LocalTime.now());
+					isEnd(re_msg);
 					nums--;
 				}
-				System.out.println("结束时间" + LocalTime.now());
+
 			}
 		} catch (Exception e1) {
-
 			e1.printStackTrace();
 		}
 	}
 
-	public boolean isEnd(String re_msg, int nums) {
-		return (!"预定座位成功".equals(re_msg) && nums > 0 && !"该座位已经被抢掉了,请换个座位".equals(re_msg));
+	public synchronized void isEnd(String re_msg) {
+		if("预定座位成功".equals(re_msg)) this.flag=true;
 	}
 
 	public String getR_url() {
