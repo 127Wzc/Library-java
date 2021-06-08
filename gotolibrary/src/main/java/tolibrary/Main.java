@@ -9,6 +9,7 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.time.LocalTime;
@@ -21,20 +22,48 @@ import java.util.regex.Pattern;
 
 public class Main {
 
+
     //只需修改以下三个参数即可  session 个人Session  libid场馆号   key座位号
-    static String session = "4eb9f0de540a163b281fa184fe7891df";
-    static String libid = "10084";
-    static String key = "12,28";
+    static String session = "f1bd1ca2038e77d4419509969d612e6c";
+    static String libid = "10085";
+    static String key = "14,16";
+
 
     public static void main(String[] args) throws Exception {
         PreWindow preWindwo = new PreWindow();
-        //init();此为自定义输入信息，如上面确认无误后可不用更改
-        System.out.println("本次座位信息为  libid=" + libid + "    key=" + key);
+
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入Session信息");
+        session = sc.nextLine();
+        sc.close();
+
+
         long startTime = System.currentTimeMillis() / 1000L;
         Document document = function(pageIndex, RequestConfig.initPageIndex(startTime, session), startTime, session);
         if (!getPersonInfo(session)) {
             return;
         }
+
+        //获取常用座位信息
+        Element seat_list = null;
+        seat_list=document.getElementById("seat_info");
+        Elements seats=seat_list.getElementsByClass("disabled");
+        System.out.println("常用座位信息如下：");
+        for(Element elements:seats){
+            System.out.println(elements.text());
+        }
+
+
+        Element seat01=seats.get(0);
+
+        libid=seat01.attr("lib_id");
+        key=seat01.attr("seat_key");
+
+        System.out.println("本次座位信息为"+seat01.text()+"  libid=" + libid + "    key=" + key);
+
+
+
         if (Util.isTime()) {
             System.out.println("开始时间" + LocalTime.now());
             String r_url = null;
@@ -50,26 +79,11 @@ public class Main {
             t2.start();
             t3.start();
         }
+
+
     }
 
-    /**
-     * 自定义输入内容
-     */
-    public static void init(){
-        Scanner sc = new Scanner(System.in);
-		System.out.println("请输入Session信息");
-		session = sc.nextLine();
-		System.out.println("请输入座位号格式为libid+key");
-		System.out.println("如(七楼中230为 11061/59,37)");
-		String libkey = sc.nextLine();
-		if ((libkey.split("/")).length == 2) {
-			libid = libkey.split("/")[0];
-			key = libkey.split("/")[1];
-		} else {
-			System.out.println("输入信息错误请重新输入");
-			return;
-		}
-    }
+
 
 
     //首页
@@ -132,6 +146,7 @@ public class Main {
         try {
             user_info = document.getElementsByClass("user-title");
             System.out.println("您的系统昵称为：" + user_info.text());
+
         } catch (Exception e) {
             System.out.println("Session错误或过期");
             return false;
