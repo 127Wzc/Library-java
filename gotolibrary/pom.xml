@@ -15,17 +15,28 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <repositories>
+        <repository>
+            <!--远程仓库唯一标识符。可以用来匹配在settings.xml文件里配置的远程仓库 -->
+            <id>nexus-aliyun</id>
+            <!--远程仓库名称 -->
+            <name>Nexus aliyun</name>
+            <!--远程仓库URL，按protocol://hostname/path形式 -->
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.2-beta-5</version>
                 <configuration>
                     <!--这部分可有可无,加上的话则直接生成可运行jar包 -->
                     <archive>
                         <manifest>
-                            <mainClass>tolibrary.TeseMain</mainClass>
+                            <mainClass>tolibrary.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -45,6 +56,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.16.2</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

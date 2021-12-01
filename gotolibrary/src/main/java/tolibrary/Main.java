@@ -8,6 +8,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -24,7 +25,7 @@ public class Main {
 
 
     //只需修改以下三个参数即可  session 个人Session  libid场馆号   key座位号
-    static String session = "f1bd1ca2038e77d4419509969d612e6c";
+    static String session = "a220e19d0c7d680a4ada159ec15c9f29";
     static String libid = "10085";
     static String key = "14,16";
 
@@ -34,9 +35,8 @@ public class Main {
 
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入Session信息");
-        session = sc.nextLine();
-        sc.close();
+//        System.out.println("请输入Session信息");
+//        session = sc.nextLine();
 
 
         long startTime = System.currentTimeMillis() / 1000L;
@@ -44,37 +44,53 @@ public class Main {
         if (!getPersonInfo(session)) {
             return;
         }
-
+        Thread t1 = new Thread(preWindwo);
+        Thread t2 = new Thread(preWindwo);
+        Thread t3 = new Thread(preWindwo);
         //获取常用座位信息
         Element seat_list = null;
         seat_list=document.getElementById("seat_info");
-        Elements seats=seat_list.getElementsByClass("disabled");
-        System.out.println("常用座位信息如下：");
-        for(Element elements:seats){
-            System.out.println(elements.text());
+        if(seat_list!=null){
+            Elements seats=seat_list.getElementsByClass("disabled");
+            System.out.println("常用座位信息如下：");
+            for(Element elements:seats){
+                System.out.println(elements.text());
+            }
+            Element seat01=seats.get(1);
+
+            libid=seat01.attr("lib_id");
+            key=seat01.attr("seat_key");
+
+            System.out.println("本次座位信息为"+seat01.text()+"  libid=" + libid + "    key=" + key);
+        }else {
+            System.out.println("正处于在座状态，请手动输入座位信息格式为  10085/12,16");
+            String libAndSitCode=sc.nextLine();
+            String[] datas=libAndSitCode.split("/");
+            while (datas!=null){
+                if(datas.length==2){
+                    libid=datas[0];
+                    key=datas[1];
+                    System.out.println("解析自定义场馆号为："+libid+"   座位号为："+key);
+                    break;
+                }else{
+                    System.out.println("解析异常。请重新输入，格式为  10085/12,16");
+                    libAndSitCode=sc.nextLine();
+                    datas=libAndSitCode.split("/");
+                    continue;
+                }
+            }
         }
-
-
-        Element seat01=seats.get(0);
-
-        libid=seat01.attr("lib_id");
-        key=seat01.attr("seat_key");
-
-        System.out.println("本次座位信息为"+seat01.text()+"  libid=" + libid + "    key=" + key);
-
+        sc.close();
 
 
         if (Util.isTime()) {
             System.out.println("开始时间" + LocalTime.now());
             String r_url = null;
             while (r_url == null) {
-                r_url = getRequsetUrl(libid, key);
+                r_url = getRequsetUrl();
             }
             preWindwo.setR_url(r_url);
             preWindwo.setStartTime(startTime);
-            Thread t1 = new Thread(preWindwo);
-            Thread t2 = new Thread(preWindwo);
-            Thread t3 = new Thread(preWindwo);
             t1.start();
             t2.start();
             t3.start();
@@ -93,6 +109,8 @@ public class Main {
     //明日预约
     static String pagePre = "https://wechat.laixuanzuo.com/index.php/prereserve/index.html";
 
+    //常用座位
+    static String commonSeat="https://wechat.laixuanzuo.com/index.php/settings/seat.html";
     /**
      * 发请求通用方法  如：请求个人信息、请求地址参数时
      * @param url  请求地址
@@ -156,16 +174,17 @@ public class Main {
 
     /**
      * 拼接请求地址
-     * @param libid  场馆号
-     * @param key   座位号
      * @return  请求地址
      */
-    public static String getRequsetUrl(String libid, String key) throws Exception {
+    public static String getRequsetUrl() throws Exception {
         long startTime = System.currentTimeMillis() / 1000L;
         String code = getCode(session, startTime);
         System.out.println("解密后:" + code);
         if (code.equals("未开放预约页面")) {
             System.out.println("获取动态Code失败，已经抢到或未开放");
+            return null;
+        }else if(code.equals("解析座位信息失败")){
+            System.out.println("页面为解析到座位信息，正在重新获取。。");
             return null;
         }
         String yzm = getYzm(startTime);
@@ -188,6 +207,7 @@ public class Main {
     public static String getCode(String session, long startTime) throws Exception {
         long startTime2 = System.currentTimeMillis() / 1000L;
         Document cod_document = function(pagePre, RequestConfig.initPageIndex(startTime, session), startTime2, session);
+
         String regex = "<script src=\"(.*?)\"";
         Pattern pa = Pattern.compile(regex);
         Matcher ma = pa.matcher(cod_document.toString());
